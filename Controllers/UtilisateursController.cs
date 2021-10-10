@@ -1,14 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using System.IO;
 using WebAPI.Models;
-using Microsoft.AspNetCore.Hosting;
 
 namespace WebAPI.Controllers
 {
@@ -17,9 +11,9 @@ namespace WebAPI.Controllers
     public class UtilisateursController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        private readonly ArticlesDBContext _context;
+        private readonly BlogDBContext _context;
 
-        public UtilisateursController(IConfiguration configuration, ArticlesDBContext context)
+        public UtilisateursController(IConfiguration configuration, BlogDBContext context)
         {
             _configuration = configuration;
             _context = context;
@@ -38,7 +32,10 @@ namespace WebAPI.Controllers
         {
             Utilisateur utilisateur = new Utilisateur();
 
+            utilisateur.UtilisateurUsername = utilisateurAAjouter.UtilisateurUsername;
             utilisateur.UtilisateurEmailAddress = utilisateurAAjouter.UtilisateurEmailAddress;
+            utilisateur.UtilisateurPassword = utilisateurAAjouter.UtilisateurPassword;
+            utilisateur.IsAdmin = false;
 
             _context.Utilisateurs.Add(utilisateur);
             await _context.SaveChangesAsync();

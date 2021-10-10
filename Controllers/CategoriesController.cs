@@ -1,14 +1,7 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using System.IO;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
@@ -18,9 +11,9 @@ namespace WebAPI.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        private readonly ArticlesDBContext _context;
+        private readonly BlogDBContext _context;
 
-        public CategoriesController(IConfiguration configuration, ArticlesDBContext context)
+        public CategoriesController(IConfiguration configuration, BlogDBContext context)
         {
             _configuration = configuration;
             _context = context;
