@@ -10,7 +10,7 @@ using WebAPI.Models;
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(BlogDBContext))]
-    [Migration("20211009230207_First")]
+    [Migration("20211012064520_First")]
     partial class First
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,7 +55,7 @@ namespace WebAPI.Migrations
                     b.Property<string>("PostName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PostYoutubeIframe")
+                    b.Property<string>("PostYoutubeHref")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PostId");

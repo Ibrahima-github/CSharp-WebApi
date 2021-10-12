@@ -190,6 +190,7 @@ C:\Users\Ibra\Documents\Examen\CSharp-WebApi\bin\Debug\netcoreapp3.1\runtimes\un
 C:\Users\Ibra\Documents\Examen\CSharp-WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard1.3\System.Data.SqlClient.dll
 C:\Users\Ibra\Documents\Examen\CSharp-WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Ibra\Documents\Examen\CSharp-WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Ibra\Documents\Examen\CSharp-WebApi\obj\Debug\netcoreapp3.1\WebAPI.csproj.AssemblyReference.cache
 C:\Users\Ibra\Documents\Examen\CSharp-WebApi\obj\Debug\netcoreapp3.1\WebAPI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Ibra\Documents\Examen\CSharp-WebApi\obj\Debug\netcoreapp3.1\WebAPI.AssemblyInfoInputs.cache
 C:\Users\Ibra\Documents\Examen\CSharp-WebApi\obj\Debug\netcoreapp3.1\WebAPI.AssemblyInfo.cs
@@ -203,4 +204,3 @@ C:\Users\Ibra\Documents\Examen\CSharp-WebApi\obj\Debug\netcoreapp3.1\WebAPI.cspr
 C:\Users\Ibra\Documents\Examen\CSharp-WebApi\obj\Debug\netcoreapp3.1\WebAPI.dll
 C:\Users\Ibra\Documents\Examen\CSharp-WebApi\obj\Debug\netcoreapp3.1\WebAPI.pdb
 C:\Users\Ibra\Documents\Examen\CSharp-WebApi\obj\Debug\netcoreapp3.1\WebAPI.genruntimeconfig.cache
-C:\Users\Ibra\Documents\Examen\CSharp-WebApi\obj\Debug\netcoreapp3.1\WebAPI.csproj.AssemblyReference.cache

@@ -46,7 +46,7 @@ namespace WebAPI.Migrations
                     CategoryId = table.Column<int>(type: "int", nullable: true),
                     ArticleUploadDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PostDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PostYoutubeIframe = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    PostYoutubeHref = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -53,7 +53,7 @@ namespace WebAPI.Migrations
                     b.Property<string>("PostName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PostYoutubeIframe")
+                    b.Property<string>("PostYoutubeHref")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PostId");

@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
             post.Category = postAAjouter.Category;
             post.ArticleUploadDate = postAAjouter.ArticleUploadDate;
             post.PostDescription = postAAjouter.PostDescription;
-            post.PostYoutubeIframe = postAAjouter.PostYoutubeIframe;/*
+            post.PostYoutubeHref = postAAjouter.PostYoutubeHref;/*
             post.PostPicture = postAAjouter.PostPicture;
             post.PostLink = postAAjouter.PostLink;*/
 
@@ -64,7 +64,7 @@ namespace WebAPI.Controllers
             post.Category = postAModifier.Category;
             post.ArticleUploadDate = postAModifier.ArticleUploadDate;
             post.PostDescription = postAModifier.PostDescription;
-            post.PostYoutubeIframe = postAModifier.PostYoutubeIframe;
+            post.PostYoutubeHref = postAModifier.PostYoutubeHref;
            /* post.PostPicture = postAModifier.PostPicture;
             post.PostLink = postAModifier.PostLink;*/
 
