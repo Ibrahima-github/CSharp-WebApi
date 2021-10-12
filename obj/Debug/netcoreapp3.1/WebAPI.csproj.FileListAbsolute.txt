@@ -203,3 +203,4 @@ C:\Users\Ibra\Documents\Examen\CSharp-WebApi\obj\Debug\netcoreapp3.1\WebAPI.cspr
 C:\Users\Ibra\Documents\Examen\CSharp-WebApi\obj\Debug\netcoreapp3.1\WebAPI.dll
 C:\Users\Ibra\Documents\Examen\CSharp-WebApi\obj\Debug\netcoreapp3.1\WebAPI.pdb
 C:\Users\Ibra\Documents\Examen\CSharp-WebApi\obj\Debug\netcoreapp3.1\WebAPI.genruntimeconfig.cache
+C:\Users\Ibra\Documents\Examen\CSharp-WebApi\obj\Debug\netcoreapp3.1\WebAPI.csproj.AssemblyReference.cache

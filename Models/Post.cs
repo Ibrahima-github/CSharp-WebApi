@@ -10,6 +10,6 @@ namespace WebAPI.Models
         public Category Category { get; set; }
         public DateTime ArticleUploadDate { get; set; }
         public string PostDescription { get; set; }
-        public string PostYoutubeIframe { get; set; }
+        public string PostYoutubeHref { get; set; }
     }
 }
