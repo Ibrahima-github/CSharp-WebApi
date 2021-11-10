@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -26,6 +27,7 @@ namespace WebAPI.Controllers
             _context = context;
         }
 
+        [EnableCors("Policy")]
         [HttpGet]
         public JsonResult Get()
         {
@@ -35,6 +37,7 @@ namespace WebAPI.Controllers
 
         }
 
+        [EnableCors("Policy")]
         [HttpPost]
         public async Task<JsonResult> PostAsync(Post postAAjouter)
         {
@@ -43,11 +46,10 @@ namespace WebAPI.Controllers
 
             post.PostName = postAAjouter.PostName;
             post.Category = postAAjouter.Category;
-            post.ArticleUploadDate = postAAjouter.ArticleUploadDate;
+            post.ArticleUploadDate = DateTime.Today; ;
             post.PostDescription = postAAjouter.PostDescription;
-            post.PostYoutubeHref = postAAjouter.PostYoutubeHref;/*
-            post.PostPicture = postAAjouter.PostPicture;
-            post.PostLink = postAAjouter.PostLink;*/
+            post.PostYoutubeHref = postAAjouter.PostYoutubeHref;
+            post.ImageFileName = postAAjouter.ImageFileName;
 
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();
@@ -55,6 +57,7 @@ namespace WebAPI.Controllers
             return new JsonResult("Added successfully");
         }
 
+        [EnableCors("Policy")]
         [HttpPut]
         public async Task<JsonResult> PutAsync(Post postAModifier)
         {
@@ -62,9 +65,10 @@ namespace WebAPI.Controllers
 
             post.PostName = postAModifier.PostName;
             post.Category = postAModifier.Category;
-            post.ArticleUploadDate = postAModifier.ArticleUploadDate;
+            post.ArticleUploadDate = DateTime.Today;
             post.PostDescription = postAModifier.PostDescription;
             post.PostYoutubeHref = postAModifier.PostYoutubeHref;
+            post.ImageFileName = postAModifier.ImageFileName;
            /* post.PostPicture = postAModifier.PostPicture;
             post.PostLink = postAModifier.PostLink;*/
 
@@ -74,6 +78,7 @@ namespace WebAPI.Controllers
             return new JsonResult("Updated successfully");
         }
 
+        [EnableCors("Policy")]
         [HttpDelete("{PostId}")]
         public async Task<JsonResult> DeleteAsync(int PostId)
         {
@@ -85,12 +90,13 @@ namespace WebAPI.Controllers
             return new JsonResult("Deleted successfully");
         }
 
+        [EnableCors("Policy")]
         [Route("SaveFile")]
         [HttpPost]
         public JsonResult SaveFile()
         {
             try
-            {
+            { 
                 var httpRequest = Request.Form;
                 var postedFile = httpRequest.Files[0];
                 string filename = postedFile.FileName;
@@ -99,6 +105,7 @@ namespace WebAPI.Controllers
                 using (var stream = new FileStream(physicalPath, FileMode.Create))
                 {
                     postedFile.CopyTo(stream);
+                    
                 }
 
                 return new JsonResult(filename);
@@ -109,6 +116,7 @@ namespace WebAPI.Controllers
             }
         }
 
+        [EnableCors("Policy")]
         [Route("GetAllCategories")]
         [HttpGet]
         public JsonResult GetAllCategories()

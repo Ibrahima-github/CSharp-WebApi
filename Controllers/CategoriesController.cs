@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace WebAPI.Controllers
             _context = context;
         }
 
+        [EnableCors("Policy")]
         [HttpGet]
         public JsonResult Get()
         {
@@ -28,6 +30,7 @@ namespace WebAPI.Controllers
 
         }
 
+        [EnableCors("Policy")]
         [HttpPost]
         public async Task<JsonResult> PostAsync(Category categorieAAjouter)
         {
@@ -41,10 +44,11 @@ namespace WebAPI.Controllers
             return new JsonResult("Added successfully");
         }
 
+        [EnableCors("Policy")]
         [HttpPut]
         public async Task<JsonResult> PutAsync(Category categorieAModifier)
         {
-            var categorie = await _context.Categories.FindAsync(categorieAModifier.CategoryId); ;
+            var categorie = await _context.Categories.FindAsync(categorieAModifier.CategoryId); 
 
             categorie.CategoryName = categorieAModifier.CategoryName;
 
@@ -54,6 +58,7 @@ namespace WebAPI.Controllers
             return new JsonResult("Updated successfully");
         }
 
+        [EnableCors("Policy")]
         [HttpDelete("{CategoryId}")]
         public async Task<JsonResult> DeleteAsync(int CategoryId)
         {

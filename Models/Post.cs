@@ -7,9 +7,10 @@ namespace WebAPI.Models
     {
         public int PostId { get; set; }
         public string PostName { get; set; }
-        public Category Category { get; set; }
+        public string Category { get; set; }
         public DateTime ArticleUploadDate { get; set; }
         public string PostDescription { get; set; }
         public string PostYoutubeHref { get; set; }
+        public string ImageFileName { get; set; }
     }
 }

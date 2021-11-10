@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Net.Http.Headers;
 using Newtonsoft.Json.Serialization;
 using System.IO;
 using WebAPI.Models;
@@ -13,6 +14,7 @@ namespace WebAPI
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,12 +26,17 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Security block by default requests from a different domain
-            //Enable Cors
-            services.AddCors(c =>
+            
+
+            services.AddCors(options =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin()
-                .AllowAnyMethod().AllowAnyHeader());
+                options.AddPolicy("Policy",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:3000")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                    });
             });
 
             services.AddDbContext<BlogDBContext>(options =>
@@ -52,6 +59,8 @@ namespace WebAPI
 
             app.UseRouting();
 
+            app.UseCors();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -59,12 +68,12 @@ namespace WebAPI
                 endpoints.MapControllers();
             });
 
-           /* app.UseStaticFiles(new StaticFileOptions
+           app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(
                     Path.Combine(Directory.GetCurrentDirectory(), "Images")),
                 RequestPath = "/Images"
-            });*/
+            });
         }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebAPI.Models;
 
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(BlogDBContext))]
-    partial class BlogDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211107122103_First")]
+    partial class First
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,8 +46,8 @@ namespace WebAPI.Migrations
                     b.Property<DateTime>("ArticleUploadDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Category")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImageFileName")
                         .HasColumnType("nvarchar(max)");
@@ -60,6 +62,8 @@ namespace WebAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PostId");
+
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Posts");
                 });
@@ -86,6 +90,15 @@ namespace WebAPI.Migrations
                     b.HasKey("UtilisateurId");
 
                     b.ToTable("Utilisateurs");
+                });
+
+            modelBuilder.Entity("WebAPI.Models.Post", b =>
+                {
+                    b.HasOne("WebAPI.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }
