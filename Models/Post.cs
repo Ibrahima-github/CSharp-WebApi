@@ -11,6 +11,8 @@ namespace WebAPI.Models
         public DateTime ArticleUploadDate { get; set; }
         public string PostDescription { get; set; }
         public string PostYoutubeHref { get; set; }
-        public string ImageFileName { get; set; }
+        public string AdsTitle { get; set; }
+        public string AdsImageFileName { get; set; }
+        public string AdsLink { get; set; }
     }
 }

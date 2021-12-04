@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ibra\\Documents\\Examen\\CSharp-WebApi\\WebAPI.csproj": {}
+    "C:\\Users\\Ibra\\OneDrive\\Documents\\Examen\\CSharp-WebApi\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ibra\\Documents\\Examen\\CSharp-WebApi\\WebAPI.csproj": {
+    "C:\\Users\\Ibra\\OneDrive\\Documents\\Examen\\CSharp-WebApi\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ibra\\Documents\\Examen\\CSharp-WebApi\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Ibra\\OneDrive\\Documents\\Examen\\CSharp-WebApi\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\Ibra\\Documents\\Examen\\CSharp-WebApi\\WebAPI.csproj",
+        "projectPath": "C:\\Users\\Ibra\\OneDrive\\Documents\\Examen\\CSharp-WebApi\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\Ibra\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ibra\\Documents\\Examen\\CSharp-WebApi\\obj\\",
+        "outputPath": "C:\\Users\\Ibra\\OneDrive\\Documents\\Examen\\CSharp-WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -24,15 +24,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -43,8 +43,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
@@ -60,13 +60,13 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[5.0.10, )"
-            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[5.0.0, )"
             },

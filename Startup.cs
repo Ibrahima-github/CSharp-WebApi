@@ -14,7 +14,7 @@ namespace WebAPI
 {
     public class Startup
     {
-
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,27 +26,29 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
 
             services.AddCors(options =>
             {
                 options.AddPolicy("Policy",
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost:3000")
+                        builder.WithOrigins("http://localhost:3000",
+                                            "http://localhost:3001")
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                     });
             });
 
             services.AddDbContext<BlogDBContext>(options =>
-           options.UseSqlServer(Configuration.GetConnectionString("BlogAppCon")));
+           options.UseNpgsql(Configuration.GetConnectionString("BlogAppCon")));
 
 
             services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings
             .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore).AddNewtonsoftJson(
                 options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
             services.AddControllers();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,7 +61,7 @@ namespace WebAPI
 
             app.UseRouting();
 
-            app.UseCors();
+            app.UseCors("Policy");
 
             app.UseAuthorization();
 
@@ -71,8 +73,8 @@ namespace WebAPI
            app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(
-                    Path.Combine(Directory.GetCurrentDirectory(), "Images")),
-                RequestPath = "/Images"
+                    Path.Combine(Directory.GetCurrentDirectory(), "Photos")),
+                RequestPath = "/Photos"
             });
         }
     }

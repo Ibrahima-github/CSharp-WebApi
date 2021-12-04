@@ -49,7 +49,9 @@ namespace WebAPI.Controllers
             post.ArticleUploadDate = DateTime.Today; ;
             post.PostDescription = postAAjouter.PostDescription;
             post.PostYoutubeHref = postAAjouter.PostYoutubeHref;
-            post.ImageFileName = postAAjouter.ImageFileName;
+            post.AdsTitle = postAAjouter.AdsTitle;
+            post.AdsImageFileName = postAAjouter.AdsImageFileName;
+            post.AdsLink = postAAjouter.AdsLink;
 
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();
@@ -68,9 +70,10 @@ namespace WebAPI.Controllers
             post.ArticleUploadDate = DateTime.Today;
             post.PostDescription = postAModifier.PostDescription;
             post.PostYoutubeHref = postAModifier.PostYoutubeHref;
-            post.ImageFileName = postAModifier.ImageFileName;
-           /* post.PostPicture = postAModifier.PostPicture;
-            post.PostLink = postAModifier.PostLink;*/
+            post.AdsTitle = postAModifier.AdsTitle;
+            post.AdsImageFileName = postAModifier.AdsImageFileName;
+            post.AdsLink = postAModifier.AdsLink;
+
 
             _context.Posts.Update(post);
             await _context.SaveChangesAsync();
@@ -100,7 +103,7 @@ namespace WebAPI.Controllers
                 var httpRequest = Request.Form;
                 var postedFile = httpRequest.Files[0];
                 string filename = postedFile.FileName;
-                var physicalPath = _env.ContentRootPath + "/Images" + filename;
+                var physicalPath = _env.ContentRootPath + "/Photos/" + filename;
 
                 using (var stream = new FileStream(physicalPath, FileMode.Create))
                 {

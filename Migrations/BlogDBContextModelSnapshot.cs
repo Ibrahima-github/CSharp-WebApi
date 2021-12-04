@@ -2,8 +2,8 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WebAPI.Models;
 
 namespace WebAPI.Migrations
@@ -15,7 +15,7 @@ namespace WebAPI.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityColumns()
+                .UseIdentityByDefaultColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.10");
 
@@ -24,7 +24,7 @@ namespace WebAPI.Migrations
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .UseIdentityByDefaultColumn();
 
                     b.Property<string>("CategoryName")
                         .HasColumnType("nvarchar(max)");
@@ -39,13 +39,13 @@ namespace WebAPI.Migrations
                     b.Property<int>("PostId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .UseIdentityByDefaultColumn();
 
                     b.Property<DateTime>("ArticleUploadDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Category")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImageFileName")
                         .HasColumnType("nvarchar(max)");
@@ -61,6 +61,8 @@ namespace WebAPI.Migrations
 
                     b.HasKey("PostId");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Posts");
                 });
 
@@ -69,7 +71,7 @@ namespace WebAPI.Migrations
                     b.Property<int>("UtilisateurId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .UseIdentityByDefaultColumn();
 
                     b.Property<bool>("IsAdmin")
                         .HasColumnType("bit");
@@ -86,6 +88,15 @@ namespace WebAPI.Migrations
                     b.HasKey("UtilisateurId");
 
                     b.ToTable("Utilisateurs");
+                });
+
+            modelBuilder.Entity("WebAPI.Models.Post", b =>
+                {
+                    b.HasOne("WebAPI.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }
