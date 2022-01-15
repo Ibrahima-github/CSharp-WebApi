@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m7MHn6DClCRsmYJb8b1EEqe3upoRpcR5omlU5kYkRPvXSOevuHDzp7BhrOQOmbixeY7Kkako5o3ksVQ5j9qucg==",
+  "dgSpecHash": "/dnoV4BR3/3ml0/pgD4KPiYldclUwyQyexQk2qkauAxhki/+efl6DGiY0ZwlpWKurxCHa8OXIILleHqSgVhS9A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ibra\\OneDrive\\Documents\\Examen\\CSharp-WebApi\\WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\Ibra\\OneDrive\\Documents\\Examen\\ApiCSharp\\CSharp-WebApi\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ibra\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Ibra\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.13\\microsoft.aspnetcore.jsonpatch.3.1.13.nupkg.sha512",

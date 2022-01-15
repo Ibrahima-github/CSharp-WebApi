@@ -16,9 +16,9 @@ namespace WebAPI.Controllers
     [ApiController]
     public class PostsController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
-        private readonly IWebHostEnvironment _env;
-        private readonly BlogDBContext _context;
+        protected readonly IConfiguration _configuration;
+        protected readonly IWebHostEnvironment _env;
+        protected readonly BlogDBContext _context;
 
         public PostsController(IConfiguration configuration, IWebHostEnvironment env, BlogDBContext context)
         {
@@ -29,11 +29,10 @@ namespace WebAPI.Controllers
 
         [EnableCors("Policy")]
         [HttpGet]
-        public JsonResult Get()
+        public IActionResult Get()
         {
-            var table = _context.Posts.ToList();
 
-            return new JsonResult(table);
+            return Ok(_context.Posts.ToList());
 
         }
 
