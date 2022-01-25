@@ -31,8 +31,15 @@ namespace WebAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            try
+            {
+            var list = _context.Posts.ToList();
+            return new JsonResult(list);
 
-            return Ok(_context.Posts.ToList());
+            }catch(Exception e)
+            {
+                return new JsonResult(e.Message);
+            }
 
         }
 

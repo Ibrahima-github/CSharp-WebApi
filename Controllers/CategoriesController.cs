@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAPI.Models;
@@ -24,9 +25,16 @@ namespace WebAPI.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            var table = _context.Categories.ToArray();
+            try
+            {
 
+            var table = _context.Categories.ToList();
             return new JsonResult(table);
+
+            }catch(Exception e)
+            {
+                return new JsonResult(e.Message);
+            }
 
         }
 

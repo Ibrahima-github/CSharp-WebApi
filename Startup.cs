@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
 using Newtonsoft.Json.Serialization;
 using System.IO;
+using WebAPI.Helpers;
 using WebAPI.Models;
 
 namespace WebAPI
@@ -33,14 +34,18 @@ namespace WebAPI
                     builder =>
                     {
                         builder.WithOrigins("http://localhost:3000",
-                                            "http://localhost:3001")
+                                            "http://localhost:3001",
+                                            "http://localhost:3002")
                         .AllowAnyHeader()
-                        .AllowAnyMethod();
+                        .AllowAnyMethod()
+                        .AllowCredentials();
                     });
             });
 
             services.AddDbContext<BlogDBContext>(options =>
            options.UseNpgsql(Configuration.GetConnectionString("BlogAppCon")));
+
+            services.AddScoped<JwtService>();
 
 
             services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings
