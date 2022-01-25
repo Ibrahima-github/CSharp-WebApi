@@ -120,8 +120,6 @@ C:\Users\Ibra\OneDrive\Bureau\CSharp-WebApi\obj\Debug\net5.0\WebAPI.dll
 C:\Users\Ibra\OneDrive\Bureau\CSharp-WebApi\obj\Debug\net5.0\ref\WebAPI.dll
 C:\Users\Ibra\OneDrive\Bureau\CSharp-WebApi\obj\Debug\net5.0\WebAPI.pdb
 C:\Users\Ibra\OneDrive\Bureau\CSharp-WebApi\obj\Debug\net5.0\WebAPI.genruntimeconfig.cache
-C:\Users\Ibra\OneDrive\Bureau\CSharp-WebApi\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\Ibra\OneDrive\Bureau\CSharp-WebApi\bin\Debug\net5.0\ServiceStack.Interfaces.dll
 C:\Users\Ibra\OneDrive\Bureau\CSharp-WebApi\bin\Debug\net5.0\BCrypt.Net-Next.dll
 C:\Users\Ibra\OneDrive\Bureau\CSharp-WebApi\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Ibra\OneDrive\Bureau\CSharp-WebApi\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll

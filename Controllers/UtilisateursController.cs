@@ -93,7 +93,15 @@ namespace WebAPI.Controllers
         public IActionResult Login(Utilisateur utilisateur)
         {
             Utilisateur user = new Utilisateur();
+
+            try
+            {
             user = _context.Utilisateurs.FirstOrDefault(x => x.UtilisateurEmailAddress == utilisateur.UtilisateurEmailAddress);
+
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             if (user == null) return BadRequest(new { message = "Invalid Credentials " });
 
@@ -110,7 +118,7 @@ namespace WebAPI.Controllers
             });
             return Ok(new
             {
-                jwt
+                message = "success" 
             });
 
         }
